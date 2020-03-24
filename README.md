@@ -1,4 +1,5 @@
 #Getting started
+
 ##1. Install elasticsearch
  You can get latest version of Elasticsearch [here](https://www.elastic.co/downloads/elasticsearch).
 
