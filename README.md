@@ -16,6 +16,7 @@
  - `Elasticsearch 6.8.4`
  - `Elasticsearch Client 6.8.4`
  - `Java 8`
+ 
  You can find the most compatible version [here](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#preface.versions)
  
  
