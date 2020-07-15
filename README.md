@@ -18,5 +18,19 @@
  - `Java 8`
  
  You can find the most compatible version [here](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#preface.versions)
+ ## 4.Query elastic-search
+  Sử dụng BoolQuertBuilder
+  
+  BoolQueryBuilder queryBuilder = new BoolQueryBuilder();
+  
+  queryBuilder.must(QueryBuilders.termQuery("line_id", lineId));
+  
+  SearchQuery searchQuery = new NativeSearchQueryBuilder()
+          .withQuery(queryBuilder)
+          .build();
+          
+  return elasticsearchOperations.queryForList(searchQuery, Shakespeare.class);
+  
+ You can find the query elastic-search [here](https://www.baeldung.com/elasticsearch-java)
  
- 
+ You can find the query-dsl [here](https://viblo.asia/p/query-dsl-trong-elasticsearch-Eb85oJq2l2G)
