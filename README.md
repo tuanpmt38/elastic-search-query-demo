@@ -26,6 +26,7 @@
   SearchQuery searchQuery = new NativeSearchQueryBuilder()
           .withQuery(queryBuilder)
           .build();
+          
   return elasticsearchOperations.queryForList(searchQuery, Shakespeare.class);
   
  You can find the query elastic-search [here](https://www.baeldung.com/elasticsearch-java)
