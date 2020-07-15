@@ -15,4 +15,7 @@ public interface ShakespeareService {
 
   List<Shakespeare> findAllShakespeare();
 
+  List<Shakespeare> findAllShakespeareByLineId(Integer lineId_1, Integer lineId_2);
+
+  Page<Shakespeare> findAllPage(Integer lineId, Pageable pageable);
 }

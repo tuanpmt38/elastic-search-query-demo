@@ -58,4 +58,29 @@ public class ShakespeareServiceImpl implements ShakespeareService {
 
         return elasticsearchOperations.queryForList(searchQuery.build(), Shakespeare.class);
     }
+
+    @Override
+    public List<Shakespeare> findAllShakespeareByLineId(Integer lineId_1, Integer lineId_2) {
+
+        QueryBuilder queryBuilder = QueryBuilders
+                .rangeQuery("line_id").from(lineId_1).to(lineId_2);
+
+        SearchQuery searchQuery = new NativeSearchQueryBuilder()
+                .withQuery(queryBuilder)
+                .build();
+        return elasticsearchOperations.queryForList(searchQuery, Shakespeare.class);
+    }
+
+    @Override
+    public Page<Shakespeare> findAllPage(Integer lineId, Pageable pageable) {
+
+        BoolQueryBuilder queryBuilder = new BoolQueryBuilder();
+        queryBuilder.must(QueryBuilders.termQuery("line_id", lineId));
+
+        SearchQuery searchQuery = new NativeSearchQueryBuilder()
+                .withQuery(queryBuilder)
+                .withPageable(pageable)
+                .build();
+        return elasticsearchOperations.queryForPage(searchQuery, Shakespeare.class);
+    }
 }

@@ -50,4 +50,22 @@ public class ShakespeareController {
     return ResponseEntity.ok(lists);
 
   }
+
+  @GetMapping("range")
+  public ResponseEntity<List<Shakespeare>> getListAllByRange(@RequestParam Integer lineId_1, @RequestParam Integer lineId_2 ){
+
+    List<Shakespeare> lists = shakespeareService.findAllShakespeareByLineId(lineId_1, lineId_2);
+    return ResponseEntity.ok(lists);
+
+  }
+
+  @GetMapping("page")
+  public ResponseEntity<PageResponse<Shakespeare>> getAllPage(@RequestParam Integer lineId, Pageable pageable) {
+    Page<Shakespeare> result = shakespeareService.findAllPage(lineId, pageable);
+    return ResponseEntity.ok(PageResponse.<Shakespeare>builder()
+            .data(result.getContent())
+            .totalElements(result.getTotalElements())
+            .totalPages(result.getTotalPages())
+            .pageIndex(result.getNumber()).build());
+  }
 }
