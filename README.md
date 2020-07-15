@@ -27,5 +27,7 @@
           .withQuery(queryBuilder)
           .build();
   return elasticsearchOperations.queryForList(searchQuery, Shakespeare.class);
+  
  You can find the query elastic-search [here](https://www.baeldung.com/elasticsearch-java)
+ 
  You can find the query-dsl [here](https://viblo.asia/p/query-dsl-trong-elasticsearch-Eb85oJq2l2G)
