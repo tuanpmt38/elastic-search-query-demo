@@ -22,7 +22,9 @@
   Sử dụng BoolQuertBuilder
   
   BoolQueryBuilder queryBuilder = new BoolQueryBuilder();
+  
   queryBuilder.must(QueryBuilders.termQuery("line_id", lineId));
+  
   SearchQuery searchQuery = new NativeSearchQueryBuilder()
           .withQuery(queryBuilder)
           .build();
