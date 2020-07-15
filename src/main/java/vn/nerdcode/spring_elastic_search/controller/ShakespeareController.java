@@ -60,7 +60,7 @@ public class ShakespeareController {
   }
 
   @GetMapping("page")
-  public ResponseEntity<PageResponse<Shakespeare>> getAllPage(@RequestParam Integer lineId, Pageable pageable) {
+  public ResponseEntity<PageResponse<Shakespeare>> getAllPage(@RequestParam (required = false) Integer lineId, Pageable pageable) {
     Page<Shakespeare> result = shakespeareService.findAllPage(lineId, pageable);
     return ResponseEntity.ok(PageResponse.<Shakespeare>builder()
             .data(result.getContent())
