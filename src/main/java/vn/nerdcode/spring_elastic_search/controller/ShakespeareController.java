@@ -34,4 +34,20 @@ public class ShakespeareController {
   public ResponseEntity<List<Shakespeare>> getByName(@RequestParam String playName) {
     return ResponseEntity.ok(shakespeareService.findByPlayName(playName));
   }
+
+  @GetMapping("search")
+  public ResponseEntity<List<Shakespeare>> getListShakespeare (@RequestParam Integer lineId){
+
+    List<Shakespeare> lists = shakespeareService.findAllByName(lineId);
+    return ResponseEntity.ok(lists);
+
+  }
+
+  @GetMapping("all")
+  public ResponseEntity<List<Shakespeare>> getListAll(){
+
+    List<Shakespeare> lists = shakespeareService.findAllShakespeare();
+    return ResponseEntity.ok(lists);
+
+  }
 }

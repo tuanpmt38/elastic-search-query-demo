@@ -10,4 +10,9 @@ public interface ShakespeareService {
   Page<Shakespeare> findAll(Pageable pageable);
 
   List<Shakespeare> findByPlayName(String playName);
+
+  List<Shakespeare> findAllByName(Integer lineId);
+
+  List<Shakespeare> findAllShakespeare();
+
 }
